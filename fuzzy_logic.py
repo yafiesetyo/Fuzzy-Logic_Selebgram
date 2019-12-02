@@ -2,14 +2,21 @@ import csv
 from pprint import pprint
 
 def imp():    
-    with open('influencers.csv') as fuzz:
+    with open('test.csv') as fuzz:
         iqro = csv.reader(fuzz)
         hasil=[]
         for i in iqro:
-            data = []
-            data.append(float(i[0]))
-            data.append(float(i[1]))
-            hasil.append(data)
+            hasil.append(i)
+    return hasil
+
+def fetchVal(a):
+    hasil = []
+    b = a[1:100]
+    for i in b:
+        data = []
+        data.append(float(i[1]))
+        data.append(float(i[2]))
+        hasil.append(data)
     return hasil
 
 def followercount(x):
@@ -131,7 +138,7 @@ def sugeno(a,b,c):
     rej = 50
     con = 70
     acc = 100
-    hasil = ((a*100)+(b*60)+(c*30))/(a+b+c)
+    hasil = ((a*80)+(b*60)+(c*40))/(a+b+c)
     return hasil
 
 def find_fuzz_max(x):
@@ -139,11 +146,12 @@ def find_fuzz_max(x):
     c = b[:20]
     maxima = []
     for i in c:
-        maxima.append([x[i],i])
+        maxima.append([x[i],i+1])
     return maxima
 
 # main program disini
-data = imp()
+a = imp()
+data = fetchVal(a)
 result = []
 for i in data:
     follower = followercount(i[0])
@@ -163,6 +171,8 @@ for i in maxima:
     print("+++++++++++++++++++++++++++")
 print('==========================================================================================================')
 
-
+with open("hasilmantap.csv","w+") as my_csv:
+    csvWriter = csv.writer(my_csv,delimiter=',')
+    csvWriter.writerows(maxima)
 
 
