@@ -1,5 +1,4 @@
 import csv
-from pprint import pprint
 
 def imp():    
     with open('test.csv') as fuzz:
