@@ -1,7 +1,7 @@
 import csv
 
 def imp():    
-    with open('test.csv') as fuzz:
+    with open('influencers.csv') as fuzz:
         iqro = csv.reader(fuzz)
         hasil=[]
         for i in iqro:
