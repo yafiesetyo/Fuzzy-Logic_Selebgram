@@ -135,9 +135,6 @@ def rejected(x):
     return hasil
 
 def sugeno(a,b,c):
-    rej = 50
-    con = 70
-    acc = 100
     hasil = ((a*80)+(b*60)+(c*40))/(a+b+c)
     return hasil
 
